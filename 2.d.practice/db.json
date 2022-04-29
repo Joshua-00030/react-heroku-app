@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "content": "this is a note",
+      "date": "2022-04-09T23:55:11.904Z",
+      "important": false,
+      "id": 1
+    },
+    {
+      "content": "note number 2",
+      "date": "2022-04-09T23:55:59.546Z",
+      "important": true,
+      "id": 2
+    },
+    {
+      "content": "third note",
+      "date": "2022-04-09T23:56:03.429Z",
+      "important": false,
+      "id": 3
+    }
+  ]
+}
