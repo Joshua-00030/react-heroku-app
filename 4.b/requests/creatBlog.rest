@@ -1,0 +1,10 @@
+Post http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3RzIiwiaWQiOiI2Mjk2NmZhMTkwNzVhMTNjZmMwNTljZDYiLCJpYXQiOjE2NTQwMjY5ODksImV4cCI6MTY1NDAzMDU4OX0.vJSDa0bjsfb3F9YXI1ikXhK4imHAXyQccS7AvwumHnE
+
+{
+  "title": "another blog",
+  "author": "joshua",
+  "url": "goodURL",
+  "likes": 1
+}

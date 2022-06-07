@@ -8,9 +8,9 @@ const PersonForm =({persons, addPerson, updateNumber}) =>{
       event.preventDefault()
       const nameCheck = persons.find(a => a.name === newName)
       if (nameCheck!== undefined){
-        if(window.confirm(`${newName} is already in the phone book. Replace number with ${newNumber}`))
+        if(window.confirm(`${newName} is already in the phone book. Replace number with ${newNumber}?`))
         {
-          const changedPerson = {...nameCheck, number: newNumber}
+          const changedPerson = {...nameCheck, phoneNumber: newNumber}
           updateNumber(changedPerson)
         }
       }
