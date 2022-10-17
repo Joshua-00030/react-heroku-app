@@ -1,0 +1,4 @@
+delete http://localhost:3001/api/blogs/629672ff26792b9e00ff5074
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3RzIiwiaWQiOiI2Mjk2NmZhMTkwNzVhMTNjZmMwNTljZDYiLCJpYXQiOjE2NTQwMzE5NjUsImV4cCI6MTY1NDAzNTU2NX0.CP_iY6zd3RSm5theNr0D1IILqsKaF__4gPMEsLN6MSg
+//Authorization: bearer junk
