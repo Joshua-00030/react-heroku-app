@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import Blog from './components/Blog'
+import Video from './components/Video'
 import Notification from './components/notification'
-import blogService from './services/blogs'
+import blogService from './services/videos'
 import loginService from './services/login'
 
 const App = () => {
-  const [blogs, setBlogs] = useState([])
+  const [videos, setVideos] = useState([])
   const [user, setUser] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const [username, setUsername] = useState('') 
@@ -17,8 +17,8 @@ const App = () => {
   useEffect(() => {
     blogService
       .getAll()
-      .then(initialBlogs => {
-        setBlogs(initialBlogs)
+      .then(initialVideos => {
+        setVideos(initialVideos)
       })
   }, [])
 
@@ -44,11 +44,11 @@ const App = () => {
       
       const res = await blogService.create(
         {title:newTitle, author:newAuthor, url:newUrl})
-        setErrorMessage(`New blog: "${newTitle}",\nWritten by ${newAuthor} added`)
+        setErrorMessage(`New video: "${newTitle}",\nWritten by ${newAuthor} added`)
         setTimeout(() => {
           setErrorMessage(null)
         }, 5000)
-      setBlogs(blogs.concat(res))
+      setVideos(videos.concat(res))
       setNewTitle('')
       setNewAuthor('')
       setNewUrl('')
@@ -63,7 +63,7 @@ const App = () => {
   const creatBlogForm = () => (
     <div>
       <p>
-        Create a new blog:
+        Search:
       </p>
       <form onSubmit={handleBlogCreation}>
         <div>
@@ -76,7 +76,7 @@ const App = () => {
             />
         </div>
         <div>
-          Author
+          Channel
           <input
             type="text"
             value={newAuthor}
@@ -98,9 +98,9 @@ const App = () => {
     </div>
   )
 
-  const blogForm = () => (
-    blogs.map(blog =>
-      <Blog key={blog.id} blog={blog} />
+  const videoForm = () => (
+    videos.map(video =>
+      <Video key={video.id} video={video} />
     )
   )
 
@@ -158,14 +158,17 @@ const App = () => {
 
   return (
     <div>
-      <h1>blogs</h1>
-      <Notification message={errorMessage} />
-      {user === null ?
-        [loginForm()]:
-        [userForm(),
-          creatBlogForm(),
-          blogForm()]
-      }
+      <h1>DataTube</h1>
+      <div>
+        {user === null ?
+          [loginForm(),
+            <Notification message={errorMessage} />]:
+          [userForm(),
+            creatBlogForm(),
+            <Notification message={errorMessage} />,
+            videoForm()]
+          }
+      </div>
     </div>
   )
 }
